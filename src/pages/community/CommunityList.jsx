@@ -29,7 +29,6 @@ const CommunityList = () => {
     queryKey: ['community', isAsc, page],
     queryFn: () => getCommunityList(isAsc, page),
   });
-  console.log(data);
   useEffect(() => {
     if (data) {
       const pageNation = data.pageable;
@@ -39,7 +38,6 @@ const CommunityList = () => {
       setContentArray(contentArray);
     }
   }, [data]);
-  console.log(contentArray);
 
   // createdAt을 현재일로부터 몇일 전인지 계산하는 함수
   const calculateDaysAgo = (createdAt) => {
@@ -56,7 +54,6 @@ const CommunityList = () => {
   };
 
   const handleGoToDetailClick = (id) => {
-    console.log(id);
     navigate(`/communityDetail/${id}`);
   };
 
