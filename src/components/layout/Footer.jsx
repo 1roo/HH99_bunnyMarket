@@ -77,6 +77,7 @@ const Footer = () => {
     });
   };
   const handleChatClick = () => {
+    nav('/nothing');
     setFooterIcons({
       home: false,
       news: false,
