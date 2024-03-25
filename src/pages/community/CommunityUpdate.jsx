@@ -71,7 +71,6 @@ const CommunityUpdate = () => {
   });
 
   useEffect(() => {
-    console.log(data.contents);
     if (data) {
       setTitle(data.title);
       setContent(data.content);
@@ -134,7 +133,6 @@ const CommunityUpdate = () => {
     mutationKey: ['community'],
     mutationFn: updateCommunity,
     onSuccess: (response) => {
-      console.log(response);
     },
     onError: (error) => {
       console.log(error);
@@ -143,10 +141,6 @@ const CommunityUpdate = () => {
 
   const handleUpadateSubmit = (e) => {
     e.preventDefault();
-    console.log(
-      'updateNewCommunityValue',
-      newCommunityValue,
-    );
     communityUpdateMutation.mutate(
       newCommunityValue,
     );
