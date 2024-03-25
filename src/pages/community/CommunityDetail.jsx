@@ -57,7 +57,6 @@ const CommunityDetail = () => {
   // const [page, setPage] = useState(1);
   const param = useParams();
   const communityId = param.id;
-  console.log(communityId);
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['community', communityId],
@@ -66,13 +65,11 @@ const CommunityDetail = () => {
     staleTime: 60 * 1000,
   });
 
-  console.log(data);
   const detailList = data;
 
   const deleteCommunityContent = useMutation({
     mutationFn: deleteCommunity,
     onSuccess: async (data) => {
-      console.log('삭제 성공 : ', data);
       setIsDeleteOpen(false);
       setIsOpen(!isOpen);
       navigate('/community');
@@ -106,7 +103,6 @@ const CommunityDetail = () => {
 
   // 게시글 삭제 모달 오픈
   const handleOpenDeleteModalClick = () => {
-    console.log(isDeleteOpen);
     setIsDeleteOpen(true);
   };
   // 취소 버튼
@@ -116,12 +112,10 @@ const CommunityDetail = () => {
   };
   // 삭제 버튼
   const handleDeleteClick = () => {
-    // console.log(id);
     deleteCommunityContent.mutate(communityId);
   };
 
   const handleUpdateClick = () => {
-    console.log(communityId);
     navigate(`/communityUpdate/${communityId}`);
   };
 
